@@ -73,8 +73,16 @@ class BaseModel:
          standardized way of expressing time, especially if you're dealing
          with data exchange or serialization where a consistent fmt is crucial
         """
+<<<<<<< HEAD
         Dict = self.__dict__.copy()
         Dict['__class__'] = self.__name__
         Dict['created_at'] = self.created_at.isoformat()
         Dict['updated_at'] = self.updated_at.isoformat()
         return Dict
+=======
+        my_dict = self.__dict__.copy()
+        my_dict['__class__'] = self.__class__.__name__
+        my_dict['created_at'] = my_dict["created_at"].isoformat()
+        my_dict['updated_at'] = my_dict["updated_at"].isoformat()
+        return my_dict
+>>>>>>> 37761c3f8b031cc1fe997b87497a9e815b7947c6
