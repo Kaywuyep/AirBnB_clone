@@ -50,7 +50,7 @@ class BaseModel:
         of the isinstance in other words, a brief description of our model
         """
         return "[{}] ({}) {}"\
-            .format(self.__class__.__name__, self.id, self.__dict__)
+            .format(self.__name__, self.id, self.__dict__)
 
     def save(self):
         """
@@ -73,8 +73,8 @@ class BaseModel:
          standardized way of expressing time, especially if you're dealing
          with data exchange or serialization where a consistent fmt is crucial
         """
-        my_dict = self.__dict__.copy()
-        my_dict['__class__'] = self.__class__.__name__
-        my_dict['created_at'] = self.created_at.isoformat()
-        my_dict['updated_at'] = self.updated_at.isoformat()
-        return my_dict
+        Dict = self.__dict__.copy()
+        Dict['__class__'] = self.__name__
+        Dict['created_at'] = self.created_at.isoformat()
+        Dict['updated_at'] = self.updated_at.isoformat()
+        return Dict
