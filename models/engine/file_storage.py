@@ -54,11 +54,15 @@ class FileStorage:
                 loaded_objects = json.load(file)
 
             for key, value in loaded_objects.items():
+                class_name = value.get('__class__')
+                obj = eval(class_name + '(**value)')
+                self.__objects[key] = obj
+                """
                 class_name, obj_id = key.split('.')
                 obj_class = eval(class_name)  # Convert string to class
                 # Create instance using the dictionary
                 obj_instance = obj_class(**value)
-                self.__objects[key] = obj_instance
+                self.__objects[key] = obj_instance"""
 
         except FileNotFoundError:
             pass  # If the file doesn't exist, do nothing
