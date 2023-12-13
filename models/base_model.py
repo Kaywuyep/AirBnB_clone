@@ -34,16 +34,6 @@ class BaseModel:
             self.updated_at = datetime.now()
             models.storage.new(self)  # Add the instance to storage
 
-    @classmethod
-    def all(cls):
-        """an all clas method"""
-        return cls.instances
-
-    @classmethod
-    def get_count(cls):
-        """ retrieve number of instances in a class"""
-        return cls.count
-
     def __str__(self):
         """
         Return an unofficial  user friendly representation
