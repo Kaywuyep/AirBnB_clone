@@ -208,7 +208,7 @@ class HBNBCommand(cmd.Cmd):
         # list of commands
         commands = {
             "all": self.do_all,
-            # "count": self.obj_count,
+            "count": self.obj_count,
             "show": self.do_show,
             "destroy": self.do_destroy,
             "update": self.do_update
@@ -227,7 +227,7 @@ class HBNBCommand(cmd.Cmd):
             super().default(line)
             return
 
-        if args_t[1] in ["all"]:
+        if args_t[1] in ["all", "count"]:
             commands[args_t[1]](args_t[0])
 
 
