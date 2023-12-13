@@ -230,7 +230,7 @@ class HBNBCommand(cmd.Cmd):
         if args_t[1] in ["all", "count"]:
             commands[args_t[1]](args_t[0])
 
-        if args_t[1] in ["show"]:
+        if args_t[1] in ["show", "destroy"]:
             commands[args_t[1]](args_t[0] + " " + args_t[2])
 
 
