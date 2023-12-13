@@ -189,7 +189,7 @@ class HBNBCommand(cmd.Cmd):
         all_objects = models.storage.all()
         for key in all_objects.keys():
             # get classname from key
-            args = key.split()
+            args = key.split(".")
             if args[0] == class_name:
                 num_instances += 1
         print(num_instances)
