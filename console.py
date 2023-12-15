@@ -13,11 +13,11 @@ This interpreter/console allows us to manipulate a powerful storage system
 of files through the use of commands.
 
 The commands implemented include:
-    a) create - creates a new instance
-    b) show - prints string representation of an instance
-    c) destroy - deletes an instance
-    d) all - prints string representation of all instances
-    e) update - updates an instance
+  a) create - creates a new instance
+  b) show - prints string representation of an instance
+  c) destroy - deletes an instance
+  d) all - prints string representation of all instances
+  e) update - updates an instance
 
 
 USAGE
@@ -181,6 +181,57 @@ class HBNBCommand(cmd.Cmd):
             setattr(obj_instance, args[2], value)
             # save to JSON file
             models.storage.save()
+
+    def obj_count(self, class_name):
+        """Counts the number of instances of a specific class"""
+        num_instances = 0
+        # get list of stored objects
+        all_objects = models.storage.all()
+        for key in all_objects.keys():
+            # get classname from key
+            args = key.split(".")
+            if args[0] == class_name:
+                num_instances += 1
+        print(num_instances)
+
+    def default(self, line):
+        """
+        Overrrides the default behavior for unrecognized commands.
+        Executes undocumented commands which include:
+            - <class_name>.all()
+            - <class_name>.count()
+            - <class_name>.show(<id>)
+            - <class_name>.destroy(<id>)
+            - <class_name>.update(<id>, <attribute_name>, <attribute_value>)
+            - <class_name>.update(<id>, <dictionary representation>)
+        """
+        # list of commands
+        commands = {
+            "all": self.do_all,
+            "count": self.obj_count,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "update": self.do_update
+        }
+
+        # get the args from line
+        pattern = r"^(\w+)\.(\w+)\((.*)\)"
+        # empty tuple to store the match found
+        arg_t = ()
+        args = re.match(pattern, line)
+        if args:
+            args_t = args.groups()
+        if len(args_t) < 2 or args_t[0] not in class_list.keys()\
+           or args_t[1] not in commands.keys():
+            # do default behavior
+            super().default(line)
+            return
+
+        if args_t[1] in ["all", "count"]:
+            commands[args_t[1]](args_t[0])
+
+        if args_t[1] in ["show", "destroy"]:
+            commands[args_t[1]](args_t[0] + " " + args_t[2])
 
 
 # HELPER FUNCTIONS
