@@ -1,0 +1,100 @@
+body {
+    font-family: Arial;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0;
+}
+
+.places {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+article {
+    width: 30%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+article h2 {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+}
+
+.price_by_night {
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+}
+
+.information {
+    padding: 10px;
+}
+
+.user {
+    padding: 10px;
+}
+
+.description {
+    padding: 10px;
+}
+
+.amenities {
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.amenities h2 {
+    font-size: 16px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.amenities ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.amenities li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.reviews {
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.reviews h2 {
+    font-size: 16px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.reviews ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reviews li {
+    margin-bottom: 20px;
+}
+
+.reviews h3 {
+    font-size: 14px;
+    margin: 0;
+}
+
+.reviews p {
+    font-size: 12px;
+}
