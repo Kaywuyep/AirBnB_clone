@@ -40,8 +40,28 @@ article h2 {
     padding: 10px;
 }
 
+.max_guest {
+    background: url("../images/group_logo.png") top center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 100px;
+}
+.number_rooms {
+    background: url("../images/bed_logo.png") top center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 100px;
+}
+.number_bathrooms {
+    background: url("../images/bathroom_logo.png") top center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 100px;
+}
+
 .user {
     padding: 10px;
+    width: 100%;
 }
 
 .description {
@@ -68,6 +88,18 @@ article h2 {
     padding-left: 20px;
     position: relative;
     margin-bottom: 10px;
+}
+
+.place .amenities .tv::before {
+    background-image: url('../images/TV-logo.png');
+}
+
+.place .amenities .wifi::before {
+    background-image: url('../images/WIFI-logo.png');
+}
+
+.place .amenities .pets::before {
+    background-image: url('../images/pets-logo.png');
 }
 
 .reviews {

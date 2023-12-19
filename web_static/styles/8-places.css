@@ -65,19 +65,19 @@
     height: 80px;
 }
 .max_guest {
-    background: url("../images/icon_group.png") top center;
+    background: url("../images/group_logo.png") top center;
     background-repeat: no-repeat;
     display: inline-block;
     width: 100px;
 }
 .number_rooms {
-    background: url("../images/icon_bed.png") top center;
+    background: url("../images/bed._logopng") top center;
     background-repeat: no-repeat;
     display: inline-block;
     width: 100px;
 }
 .number_bathrooms {
-    background: url("../images/icon_bath.png") top center;
+    background: url("../images/bathroom_logo.png") top center;
     background-repeat: no-repeat;
     display: inline-block;
     width: 100px;
